@@ -1,0 +1,185 @@
+body { padding-top: 50px; }
+.topnav{
+    font-size: 16px;
+    border-bottom: 1px outset rgba(192, 192, 192, 0.1);
+    background: rgba(192, 192, 192, 0.9);
+    box-shadow: 0px 1px rgba(0,0,0,0.3);
+}
+.topnav .navbar-brand {
+  background: rgb(28, 28, 28, 0.0);
+  color: #000;
+  font-family: 'Yellowtail', cursive;
+  font-size: 50px;
+}
+
+/*.topnav .navbar-brand:hover
+ {
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+}*/
+.topnav ul.navbar-nav li a {
+background: rgba(28, 28, 28, 0.1);
+color: #000;
+}
+.topnav ul.navbar-nav li a:hover
+ {
+background: rgba(255, 255, 255, 0.5);
+color: #000;
+}
+.LifePage{
+    height: 855px;
+    padding-top: 50px;
+    background:url('http://img.jammyfm.com/wordpress/wp-content/uploads/2016/07/201607230325548335-720x480.jpg') no-repeat center center fixed;
+    padding-bottom: 50px;
+    background-size: cover;
+
+}
+.CareerPage{
+    height: 800px;
+    background: url('http://img1.gtimg.com/cul/pics/hv1/15/112/1887/122730750.jpg') fixed;
+    background-size: contain;
+}
+section{
+    height: 855px;
+    padding-top: 50px;
+    
+    background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489070489308&di=17956c2f978a84a4ab5b34c8225ffaad&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2429013449%2C1068960844%26fm%3D214%26gp%3D0.jpg') no-repeat center fixed;
+    padding-bottom: 50px;
+    background-size: cover;
+}
+.bg-overlay {
+    /*margin-top: -50px;*/
+  background:rgba(0,0,0, 0.3);
+  height: 855px;
+}
+.intro{
+    position: relative;
+    margin-top: 30%;
+    text-indent: 2em;
+    font-size: 14px;
+    font-family:"微软雅黑","黑体","宋体";
+    color: #E7EAEB;
+    /*height:36px;*/
+}
+.portext{
+    padding-top: 0px;
+    font-size:4em;
+    font-family: "Microsoft Yahei","黑体","宋体";
+    text-shadow: 2px 1px 2px #000;
+    color: rgba(255, 255, 255, 0.7);
+    
+    
+}
+@keyframes myfirst
+{
+0%   {top:100px; color:#000;}
+100% {top:0px; color: #E7EAEB;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {top:100px; color:#000;}
+100% {top:0px; color: #E7EAEB;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {top:100px; color:#000;}
+100% {top:0px; color: #E7EAEB;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {top:100px; color:#000;}
+100% {top:0px; color: #E7EAEB;}
+}
+.car1{
+    margin-top: 15%;
+    margin-left: 10%;
+    color: #E7EAEB;
+    font-family:"微软雅黑","黑体","宋体";
+    text-indent: 2em;
+    position:relative;
+    
+}
+.car2{
+    margin-top: 20px;
+}
+.move{
+        animation:myfirst 5s;
+    -moz-animation:myfirst 3s; /* Firefox */
+    -webkit-animation:myfirst 3s;/* Safari and Chrome */
+    -o-animation:myfirst 3s; /* Opera */
+}
+.line{
+    width: 600px;
+    /*border-top: 1px solid #f8f8f8;*/
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border: 1px outset rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+.port-list{
+    margin-top: 30px;
+    align-self: center;
+}
+#portfolio .portfolio-item {
+  margin: 30px 0px 10px;
+  /*left: 20px;*/
+  /*border: 1px outset rgba(255, 255, 255, 0.6);*/
+}
+#portfolio .portfolio-item .portfolio-link {
+  display: block;
+  position: relative;
+  /*max-width: 200px;*/
+  margin: 0 10px;
+  /*background: url("midian.jpg");
+  background-size: cover;*/
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+  background: rgba(0, 0, 0, .7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all ease .5s;
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s,
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+  opacity: 1;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+  position: absolute;
+  width: 100%;
+  /*height: 20px;*/
+  font-size: 20px;
+  text-align:center;
+  top: 50%;
+  margin-top: -12px;
+  color: #fff;
+}
+#portfolio .portfolio-item .portfolio-caption {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: rgba(0,0,0, 0.8);
+  text-align: center;
+  padding: 25px;
+}
+
+#portfolio .portfolio-item .portfolio-link h4 {
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  font-size: 20px;
+  text-align:left;
+  top: 100%;
+  margin-top: -20px;
+}
+footer{
+    padding: 50px;
+    /*height: 100px;*/
+    background: rgba(192, 192, 192, 0.9);
+}
+footer a{
+    color: rgba(0,0,0,0.7);
+}
