@@ -130,7 +130,7 @@ section{
 #portfolio .portfolio-item .portfolio-link {
   display: block;
   position: relative;
-  /*max-width: 200px;*/
+  max-width: 200px;
   margin: 0 10px;
   /*background: url("midian.jpg");
   background-size: cover;*/
