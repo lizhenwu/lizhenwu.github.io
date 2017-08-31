@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>windmill</title>
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/106820/42391/599801cff629d81b346834dd.css' rel='stylesheet' type='text/css' />
     <link rel="icon" href="./favicon.ico">
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css?family=VT323');
     *{
         box-sizing: border-box;
         margin: 0;
@@ -55,20 +55,60 @@
         color:rgba(128, 255, 128, 0.8);
         position: absolute;
         padding: 10% 20%;
-        font-family: 'Superhelioregulc9ef058e01a144','Inconsolata', Helvetica, sans-serif;
+        font-family: 'VT323', monospace;/*字符等宽的字体*/
         max-height: 100vh;
         overflow: hidden;
         font-size: 1.5em
     }
-    .text p:first-of-type{
+    h3{
         font-size: 4rem;
+    }
+    p{
+        opacity: 1;
+        height: 24px;
+        word-wrap: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        border: none;
+    }
+    p:nth-of-type(1){
+        width: 31ch;
+        animation: typing 4.5s steps(31,end) 1,
+                   cursor 1s ease 5;
+    }
+    p:nth-of-type(2){
+        width: 40ch;
+        animation: typing 6s steps(40,end) 4.5s 1,
+                    cursor 1s ease 4.5s 6;
+        animation-fill-mode: backwards;
+    }
+    p:last-of-type{
+        width: 10ch;
+        animation: typing 1.5s steps(10,end) 10.5s 1,
+                   cursor 1s ease 10.5s infinite;
+        animation-fill-mode: backwards;
+    }
+    
+    @keyframes typing{
+        0%{
+            opacity: 0;
+            width: 0;
+        }
+        1%{
+            opacity: 1;
+        }
+    }
+    @keyframes cursor {
+        50%{
+            border-right: 2px solid white
+        }
     }
 </style>
 <body>
     <div class="front"></div>
     <div class="under"></div>
     <div class="text">
-        <p>Error <span>404</span></p>
+        <h3>Error <span>404</span></h3>
         <p>The site is under attack,please</p>
         <p>figure some way out to make it avaliable</p>
         <p>Good LUCK!</p>
