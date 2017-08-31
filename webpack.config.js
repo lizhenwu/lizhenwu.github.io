@@ -9,6 +9,11 @@ module.exports = {
         filename:'bundle.js',
         path:path.resolve(__dirname,'build')
     },
+    devtool: "inline-source-map",//sourcemap错误映射，仅可用于开发环境
+    devServer:{
+        contentBase:"./build",
+        clientLogLevel: "none"
+    },
     resolve:{
         alias:{
             jquery: './src/js/jquery.js'
@@ -27,6 +32,7 @@ module.exports = {
         ]
     },
     plugins:[
+        new webpack.HotModuleReplacementPlugin(),//启用HMR
         new cleanWebpackPlugin(['build']),
         new ExtractTextPlugin({
             filename: "[name].[contenthash].css"}),
@@ -34,6 +40,9 @@ module.exports = {
             title:'windmill_',
             template:'./index.html',
             favicon:'./favicon.ico'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: process.env.NODE_ENV === 'production'
         })
     ]
 }
