@@ -121,7 +121,8 @@ p:last-of-type {
 @media screen and (max-width: 700px) {
   .text {
     padding: 10% 5%;
+    font-size: 1em;
   }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmU2MWMxNGJkNDE4ZjEzY2RhNThmYmZhMTA5NmYxZDk5LmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLjA0MTdkM2ViYTAyYzUxMTcxYjZlZDMzMThlZDg5MzI5LmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
