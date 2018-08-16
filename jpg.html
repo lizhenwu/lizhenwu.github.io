@@ -13,9 +13,14 @@
         body{
             margin: 0;
         }
+        i{
+            font-style: initial
+        }
         .loading{
+            position: fixed;
+            top: 20px;
+            right: 20px;
             display: block;
-            margin: auto 30%;
             text-align: center;
         }
         .loading::before{
@@ -32,9 +37,18 @@
         .pic{
             width: 100%;
             height: 300px;
-            border: 6px solid #a6a6a6;
+            border: 6px solid rgba(247,247,250,.8);
             background-size: cover;
             background-repeat: no-repeat;
+        }
+        .pic:not(:last-of-type) {
+            border-bottom: 0px;
+        }
+        .dashboard{
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: none;
         }
         @keyframes loading{
             from{
@@ -47,32 +61,82 @@
     </style>
 </head>
 <body>
+    <div class="dashboard">
+      <div class="row">
+        <span>待加载 <i class="count"></i> 张</span>
+        <span>已加载 <i class="count"></i> 张</span>
+      </div>
+      <div class="row">
+        <span>图片格式：tpg</span>
+        <span> 耗时 <i class="time"></i> ms</span>
+      </div>
+    </div>
     <i class="loading">Loading...</i>
     <div class="container"> 
-        <div class="pic"></div>
+        
     </div>
-    <img src="http://evelyn-tpg-demo-1251337138.picsh.myqcloud.com/image01.png?imageView2/1/format/tpg">
 </body>
 <script>
     const count = 8;
+    const loadedCount = 0;
     const container = document.querySelector('.container');
-    const pics = document.querySelectorAll('.pic');
     const srcArr = new Array(count).fill(0).map((i, index) => `http://evelyn-tpg-demo-1251337138.picsh.myqcloud.com/image0${index+1}.png?imageView2/1/format/tpg`);
+    const loading = document.querySelector('.loading');
+    const dashboard = document.querySelector('.dashboard');
     
-    const fragdocument = document.createDocumentFragment();
 
-    for(let i = 0; i < 8; i++) {
-        const pic = document.createElement('div');
-        pic.classList.add('pic');
-        fragdocument.appendChild(pic);
-    }
-    container.appendChild(fragdocument);
-    srcArr.forEach((url, index) => {
-        let img = new Image();
-        img.src = url;
-        img.onload = function() {
-            pics[index].style.backgroundImage = `url(${url})`;
+    function initBinding() {
+        const counts = document.querySelectorAll('.count');
+        const timer = document.querySelector('.time');
+        counts[0].innerText = count;
+        counts[1].innerText = 0;
+        const data = {
+            get loadedCount(){
+                return +counts[1].innerText;
+            },
+            set loadedCount(val) {
+                counts[1].innerText !== val && (counts[1].innerText = val);
+            },
+            set time(val) {
+                timer.innerText !== val && (timer.innerText = val)
+            }
         }
-    })
+        return data;
+    }
+
+    function initVM(data) {
+        const fragdocument = document.createDocumentFragment();
+        for(let i = 0; i < 8; i++) {
+            let pic = document.createElement('div');
+            pic.classList.add('pic');
+            fragdocument.appendChild(pic);
+        }
+        container.appendChild(fragdocument);
+        const pics = document.querySelectorAll('.pic');
+        srcArr.forEach((url, index) => {
+            let img = new Image();
+            img.src = url;
+            img.onload = function() {
+                data.loadedCount += 1;
+                pics[index].style.backgroundImage = `url(${url})`;
+                pics[index].style.height = `${img.height/img.width*document.body.clientWidth}px`
+            }
+        })
+    }
+    
+    function initAll() {
+        const data = initBinding();
+        initVM(data);
+        window.addEventListener('load', () => {
+            dashboard.style.display = 'block';
+            loading.style.display = 'none';
+            setTimeout(() => {
+                const timing = performance.timing;
+                data.time = timing.loadEventEnd - timing.fetchStart;
+            })
+        })
+    }
+
+    initAll();
 </script>
 </html>
