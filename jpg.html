@@ -78,9 +78,10 @@
 </body>
 <script>
     const count = 8;
+    const sizes = [104, 19, 42, 768, 165, 78, 75, 94];
     const loadedCount = 0;
     const container = document.querySelector('.container');
-    const srcArr = new Array(count).fill(0).map((i, index) => `http://evelyn-tpg-demo-1251337138.picsh.myqcloud.com/image0${index+1}.png?imageView2/1/format/tpg`);
+    const srcArr = new Array(count).fill(0).map((i, index) => ({url: `http://evelyn-tpg-demo-1251337138.picsh.myqcloud.com/image0${index+1}.png?imageView2/1/format/tpg`, size: sizes[index]}));
     const loading = document.querySelector('.loading');
     const dashboard = document.querySelector('.dashboard');
     
@@ -113,12 +114,12 @@
         }
         container.appendChild(fragdocument);
         const pics = document.querySelectorAll('.pic');
-        srcArr.forEach((url, index) => {
+        srcArr.forEach((src, index) => {
             let img = new Image();
-            img.src = url;
+            img.src = src.url;
             img.onload = function() {
                 data.loadedCount += 1;
-                pics[index].style.backgroundImage = `url(${url})`;
+                pics[index].style.backgroundImage = `url(${src.url})`;
                 pics[index].style.height = `${img.height/img.width*document.body.clientWidth}px`
             }
         })
